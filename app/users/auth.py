@@ -21,7 +21,7 @@ def verify_password(palin_password, hashed_password) -> bool:
 
 def create_access_token(data: dict) -> str:
     to_encode = data.copy()
-    expire = datetime.now(timezone.utc) + timedelta(minutes=60)  # Expiration time
+    expire = datetime.now(timezone.utc) + timedelta(minutes=600)  # Expiration time
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
     return encoded_jwt
