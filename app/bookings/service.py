@@ -1,6 +1,6 @@
 from datetime import date
 
-from sqlalchemy import select, and_, or_, func, insert
+from sqlalchemy import select, and_, func, insert
 
 from app.database import async_session_maker
 from app.rooms.models import Rooms
