@@ -13,7 +13,7 @@ class HotelDAO(BaseDAO):
     model = Hotels
 
     @classmethod
-    async def find_all(cls, location: str, date_from: date, date_to: date):
+    async def find_all_by_location(cls, location: str, date_from: date, date_to: date):
         async with async_session_maker() as session:
             booked_rooms = (
                 select(Bookings.room_id, func.count(Bookings.room_id).label("rooms_booked"))
