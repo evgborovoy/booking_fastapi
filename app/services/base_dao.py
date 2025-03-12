@@ -22,7 +22,7 @@ class BaseDAO:
     async def find_all(cls, **filter_by):
         async with async_session_maker() as session:
             result = await session.execute(
-                select(cls.model.__table__.columns).filter_by(**filter_by)
+                select(cls.model.__table__.columns)
             )
             return result.mappings().all()
 
